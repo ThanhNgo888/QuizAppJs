@@ -16,6 +16,7 @@ nextButton.addEventListener('click', () =>{
 function startGame(){
     console.log("Started")
     startButton.classList.add("hide");
+    setNextQuestion();
 
     shuffledQuestions = questions.sort(() => Math.random() - .5);
     currentQuestionIndex = 0;
@@ -59,6 +60,13 @@ function selectAnswer(e){
     Array.from(answerButtonsElement.children).forEach(button => {
         setStatusClass(button, button.dataset.correct);
     })
+
+    if(shuffledQuestions.length > currentQuestionIndex + 1){
+        nextButton.classList.remove('hide');
+    }else{
+        startButton.innerText = 'Restart';
+        startButton.classList.remove('hide');
+    }
     nextButton.classList.remove("hide");
 }
 function setStatusClass(element, correct){
