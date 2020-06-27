@@ -8,6 +8,11 @@ const answerButtonsElement = document.getElementById("answer-buttons");
 
 let shuffledQuestions, currentQuestionIndex
 
+startButton.addEventListener('click', startGame);
+nextButton.addEventListener('click', () =>{
+    currentQuestionIndex++;
+})
+
 function startGame(){
     console.log("Started")
     startButton.classList.add("hide");
