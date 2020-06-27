@@ -44,6 +44,7 @@ function showQuestion(question){
 }
 
 function resetState(){
+    clearStatusClasss(document.body);
     nextButton.classList.add("hide");
     while(answerButtonsElement.firstChild){
         answerButtonsElement.removeChild
@@ -65,7 +66,6 @@ function selectAnswer(e){
         startButton.innerText = 'Restart';
         startButton.classList.remove('hide');
     }
-    // nextButton.classList.remove("hide");
 }
 function setStatusClass(element, correct){
     clearStatusClasss(element);
@@ -87,6 +87,24 @@ const questions = [
         answers: [
             {text: '4', correct: true},
             {text: '22', correct: false}
+        ]
+    },
+    {
+        question: "Who is the best YouTuber?",
+        answers: [
+            {text: "Web Dev", correct: true},
+            {text: "Traversy Media", correct: true},
+            {text: "Web Ed", correct: true},
+            {text: "Fun Fun Function", correct: true }
+        ]
+    },
+    {
+        question: "Is Web Development fun?",
+        answers: [
+            {text: "Kinda", correct: false},
+            {text: "YES", correct: true},
+            {text: "No", correct: false},
+            {text: "IDK", correct: false }
         ]
     },
     {
