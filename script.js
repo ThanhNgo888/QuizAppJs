@@ -65,7 +65,7 @@ function selectAnswer(e){
         startButton.innerText = 'Restart';
         startButton.classList.remove('hide');
     }
-    nextButton.classList.remove("hide");
+    // nextButton.classList.remove("hide");
 }
 function setStatusClass(element, correct){
     clearStatusClasss(element);
@@ -87,6 +87,13 @@ const questions = [
         answers: [
             {text: '4', correct: true},
             {text: '22', correct: false}
+        ]
+    },
+    {
+        question: "What is 3 * 2 ?",
+        answers: [
+            {text: '6', correct: true},
+            {text: '17', correct: false}
         ]
     }
 ]
