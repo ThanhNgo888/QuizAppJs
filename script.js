@@ -1,6 +1,5 @@
 const startButton = document.getElementById("start-btn");
 const nextButton = document.getElementById("next-btn");
-startButton.addEventListener("click", startGame);
 
 const questionContainerElement = document.getElementById("question-container");
 const questionElement = document.getElementById("question");
@@ -11,13 +10,12 @@ let shuffledQuestions, currentQuestionIndex
 startButton.addEventListener('click', startGame);
 nextButton.addEventListener('click', () =>{
     currentQuestionIndex++;
+    setNextQuestion();
 })
 
 function startGame(){
-    console.log("Started")
+    // console.log("Started")
     startButton.classList.add("hide");
-    setNextQuestion();
-
     shuffledQuestions = questions.sort(() => Math.random() - .5);
     currentQuestionIndex = 0;
     questionContainerElement.classList.remove("hide");
