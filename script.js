@@ -1,4 +1,5 @@
 const startButton = document.getElementById("start-btn");
+const nextButton = document.getElementById("next-btn");
 startButton.addEventListener("click", startGame);
 
 const questionContainerElement = document.getElementById("question-container");
@@ -18,6 +19,7 @@ function startGame(){
 }
 
 function setNextQuestion(){
+    resetState();
     showQuestion(shuffledQuestions[currentQuestionIndex]);
 }
 
@@ -33,11 +35,37 @@ function showQuestion(question){
         }
         button.addEventListener('click', selectAnswer);
         answerButtonsElement.appendChild(button);
+        (answerButtonsElement.firstChild);
     })
 }
 
-function selectAnswer(e){
+function resetState(){
+    nextButton.classList.add("hide");
+    while(answerButtonsElement.firstChild){
+        answerButtonsElement.removeChild
+        (answerButtonsElement.firstChild);
+    }
+}
 
+function selectAnswer(e){
+    const selectedButton = e.target;
+    const correct = selectedButton.dataset.correct;
+    setStatusClass (document.body, correct);
+    Array.from(answerButtonsElement.children).forEach(button => {
+        setStatusClass(button, button.dataset.correct);
+    })
+}
+function setStatusClass(element, correct){
+    clearStatusClasss(element);
+    if(correct){
+        element.classList.add("correct");
+    }else{
+        element.classList.add("wrong");
+    }
+}
+function clearStatusClasss(element){
+    element.classList.remove("correct");
+    element.classList.remove("wrong");
 }
 
 //making an array of a list of questions
